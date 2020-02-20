@@ -1,0 +1,102 @@
+type User {
+  id: ID! 
+  username: String!
+  authority1: Boolean!
+  authority2: Boolean!
+  phone: String! 
+  points: [Point!]! 
+  receivePoints: [Point!]!
+  tickets: [Ticket!]! 
+  receiveTickets: [Ticket!]!
+  posts: [Post!]! 
+  stores: [Store!]! 
+  assets: [Asset!]! 
+  isSelf: Boolean!
+  likes: [Like!]! 
+  loginSecret: String
+  createdAt: String 
+  updatedAt: String 
+}
+
+type Point {
+   id: ID! 
+   user: User!
+   receiver: User!
+   createdAt: String 
+   updatedAt: String 
+ }
+
+type Ticket {
+   id: ID! 
+   user: User!
+   receiver: User!
+   createdAt: String 
+   updatedAt: String 
+ }
+
+type Asset {
+  id: ID! 
+  assets: Int!
+  date: String
+  user: User 
+  createdAt: String 
+  updatedAt: String 
+}
+
+type Store {
+  id: ID! 
+  storename: String! 
+  Advertise: Boolean!
+  location: String
+  caption: String
+  open: String
+  close: String
+  storefiles: [StoreFile!]!
+  user: User!
+  likes: [Like!]! 
+  isLiked: Boolean!
+  likeCount: Int!
+  createdAt: String 
+  updatedAt: String 
+}
+
+type StoreFile {
+   id: ID!
+   url: String!
+   store: Store!
+   createdAt: String
+   updatedAt: String
+ }
+
+type Post {
+  id: ID! 
+  postname: String! 
+  finished: Boolean!
+  date: String
+  postfiles: [PostFile!]!
+  location: String
+  caption: String
+  user: User!
+  createdAt: String 
+  updatedAt: String 
+}
+
+type PostFile {
+   id: ID!
+   url: String!
+   post: Post!
+   createdAt: String
+   updatedAt: String
+ }
+
+type Like {
+   id: ID! 
+   user: User!
+   store: Store!
+   createdAt: String 
+   updatedAt: String 
+ }
+
+ type UserProfile {
+    user: User!
+  } 

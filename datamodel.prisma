@@ -1,0 +1,95 @@
+type User {
+  id: ID! @id 
+  username: String!
+  phone: String! @unique
+  authority1: Boolean! @default(value: false)
+  authority2: Boolean! @default(value: false)
+  assets: [Asset!]! @relation(name: "AssetsOfUser", onDelete: CASCADE)
+  points : [Point!]! @relation(name: "PointsOfUser", onDelete: CASCADE)
+  receivePoints: [Point!]! @relation(name: "PointsOfrecivers", onDelete: CASCADE)
+  tickets: [Ticket!]! @relation(name: "TicketsOfUser", onDelete: CASCADE)
+  receiveTickets: [Ticket!]! @relation(name: "TicketsOfrecivers", onDelete: CASCADE)
+  posts: [Post!]! @relation(name: "PostsOfUser", onDelete: CASCADE)
+  stores: [Store!]! @relation(name: "StoresOfUser", onDelete: CASCADE)
+  likes: [Like!]! @relation(name: "LikesOfUser", onDelete: CASCADE)
+  loginSecret: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Point {
+  id: ID! @id
+  user: User @relation(name: "PointsOfUser")
+  receiver: User @relation(name: "PointsOfrecivers")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Ticket {
+  id: ID! @id
+  user: User @relation(name: "TicketsOfUser")
+  receiver: User @relation(name: "TicketsOfrecivers")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Asset {
+  id: ID! @id
+  assets: Int!
+  date: DateTime!
+  user: User @relation(name: "AssetsOfUser")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Store {
+  id: ID! @id 
+  storename: String! @unique
+  Advertise: Boolean! @default(value: false)
+  location: String
+  caption: String
+  open: String
+  close: String
+  user: User @relation(name: "StoresOfUser")
+  storefiles: [StoreFile!]! @relation(name: "FilesOfStore", onDelete: CASCADE)
+  likes: [Like!]! @relation(name: "LikeOfStore", onDelete: CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type StoreFile {
+  id: ID! @id
+  url: String!
+  store: Store @relation(name: "FilesOfStore")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Post {
+  id: ID! @id 
+  postname: String! @unique
+  finished: Boolean! @default(value: false)
+  location: String
+  caption: String
+  date: DateTime
+  user: User @relation(name: "PostsOfUser")
+  postfiles: [PostFile!]! @relation(name: "FilesOfPost", onDelete: CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type PostFile {
+  id: ID! @id
+  url: String!
+  post: Post @relation(name: "FilesOfPost")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Like {
+  id: ID! @id
+  user: User @relation(name: "LikesOfUser")
+  store: Store @relation(name: "LikeOfStore")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
