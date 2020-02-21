@@ -8,7 +8,7 @@ export default {
       if(user.authority1) {
         try {
             await prisma.createTicket({
-                user: {
+              user: {
                   connect: {
                     id: user.id
                   }

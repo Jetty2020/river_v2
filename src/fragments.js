@@ -1,6 +1,8 @@
 export const USER_FRAGMENT = `
       id
       username
+      phone
+      authority1
   `;
 
 export const FILE_FRAGMENT = `
@@ -11,6 +13,7 @@ export const FILE_FRAGMENT = `
 export const FULL_POST_FRAGMENT = `
     fragment PostParts on Post{
         id
+        finished
         postname
         location
         caption
@@ -29,6 +32,7 @@ export const FULL_POST_FRAGMENT = `
 export const FULL_STORE_FRAGMENT = `
       fragment StoreParts on Store{
           id
+          Advertise
           storename
           location
           caption
@@ -47,6 +51,38 @@ export const FULL_STORE_FRAGMENT = `
 export const FULL_TICKET_FRAGMENT = `
       fragment TicketParts on Ticket{
           id
+          createdAt
+          updatedAt
+          receiver {
+              ${USER_FRAGMENT}
+          }
+          user {
+             ${USER_FRAGMENT}
+         }
+     }
+      
+`;
+
+export const FULL_POINT_FRAGMENT = `
+      fragment PointParts on Point{
+          id
+          point
+          createdAt
+          updatedAt
+          receiver {
+              ${USER_FRAGMENT}
+          }
+          user {
+             ${USER_FRAGMENT}
+         }
+     }
+      
+`;
+
+export const FULL_RANK_FRAGMENT = `
+      fragment RankParts on Point{
+          id
+          point
           createdAt
           updatedAt
           receiver {

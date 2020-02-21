@@ -20,6 +20,7 @@ type User {
 
 type Point {
    id: ID! 
+   point: Int!
    user: User!
    receiver: User!
    createdAt: String 

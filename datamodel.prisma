@@ -19,6 +19,7 @@ type User {
 
 type Point {
   id: ID! @id
+  point: Int!
   user: User @relation(name: "PointsOfUser")
   receiver: User @relation(name: "PointsOfrecivers")
   createdAt: DateTime! @createdAt
