@@ -1,5 +1,4 @@
 import { prisma } from "../../../../generated/prisma-client";
-import { FULL_POINT_FRAGMENT } from "../../../fragments";
 
 export default {
   Query: {
@@ -10,7 +9,7 @@ export default {
             receiver: {id: user.id} 
         },
         orderBy: "createdAt_DESC"
-      }).$fragment(FULL_POINT_FRAGMENT);
+      });
     }
   }
 }; 

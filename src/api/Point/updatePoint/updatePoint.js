@@ -3,7 +3,7 @@ import { prisma } from "../../../../generated/prisma-client";
 export default {
   Mutation: {
     updatePoint: async (_, args, { request }) => {
-      const { userId, point } = args;
+      const { userId, addPoint,  previousPoint} = args;
       const { user } = request;
       if(user.authority2) {
           try {
@@ -12,7 +12,8 @@ export default {
                if (existingPoint) {
                 await prisma.deleteManyPoints( {receiver: { id: userId }} );
                    await prisma.createPoint({
-                       point,
+                       addPoint,
+                       previousPoint,
                        user: {
                          connect: {
                            id: user.id
@@ -27,7 +28,8 @@ export default {
                     return true;
               } else {
                   await prisma.createPoint({
-                      point,
+                      addPoint,
+                      previousPoint,
                       user: {
                         connect: {
                           id: user.id

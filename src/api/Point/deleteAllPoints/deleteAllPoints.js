@@ -6,7 +6,7 @@ export default {
       const { user } = request;
       const { point } = args;
       if(user.authority2) {
-        await prisma.deleteManyPoints({ point_gte: point });
+        await prisma.deleteManyPoints({ previousPoint_gte: point });
         return true;
       } else {
         return false;

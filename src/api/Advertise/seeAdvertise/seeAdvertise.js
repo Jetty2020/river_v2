@@ -6,7 +6,7 @@ export default {
     seeAdvertise: async (_, __,) => {
       return prisma.advertises({
         orderBy: "createdAt_DESC"
-      }).$fragment(FULL_AVDERTISE_FRAGMENT);
+      });
     }
   }
 }; 

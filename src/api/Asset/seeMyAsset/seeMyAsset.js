@@ -10,7 +10,7 @@ export default {
             user: {id: user.id} 
         },
         orderBy: "date_DESC"
-      }).$fragment(FULL_ASSET_FRAGMENT);
+      });
     }
   }
 }; 
