@@ -5,7 +5,7 @@ export default {
   Query: {
     seePost: async (_, __,) => {
       return prisma.posts({
-        orderBy: "createdAt_DESC"
+        orderBy: "location_DESC"
       }).$fragment(FULL_POST_FRAGMENT);
     }
   }

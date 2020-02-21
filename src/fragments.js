@@ -39,7 +39,7 @@ export const FULL_POST_FRAGMENT = `
 export const FULL_STORE_FRAGMENT = `
       fragment StoreParts on Store{
           id
-          Advertise
+          advertise
           storename
           location
           caption

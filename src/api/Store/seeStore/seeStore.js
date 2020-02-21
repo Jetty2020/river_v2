@@ -5,7 +5,7 @@ export default {
   Query: {
     seeStore: async (_, __,) => {
       return prisma.stores({
-        orderBy: "storename_ASC"
+        orderBy: "location_DESC"
       }).$fragment(FULL_STORE_FRAGMENT);
     }
   }

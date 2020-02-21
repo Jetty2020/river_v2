@@ -6,6 +6,7 @@ enum ACTIONS {
 type Mutation {
   editStore(
     id: String!
+    advertise: Boolean
     storename: String
     caption: String
     location: String
