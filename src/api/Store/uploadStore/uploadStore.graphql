@@ -1,0 +1,10 @@
+type Mutation {
+    uploadStore(
+        storename: String!, 
+        location: String, 
+        caption: String, 
+        open: String, 
+        close: String, 
+        storefiles: [String!]!
+        ): Store!
+  } 

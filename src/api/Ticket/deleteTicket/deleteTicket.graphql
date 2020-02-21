@@ -1,0 +1,3 @@
+type Mutation {
+   deleteTicket(ticketId: String!): Boolean!
+ } 

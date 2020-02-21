@@ -1,0 +1,16 @@
+enum ACTIONS {
+  EDIT
+  DELETE
+}
+ 
+type Mutation {
+  editStore(
+    id: String!
+    storename: String
+    caption: String
+    location: String
+    open: String
+    close: String
+    action: ACTIONS!
+  ): Store!
+} 
