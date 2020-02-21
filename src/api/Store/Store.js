@@ -26,6 +26,8 @@ export default {
           where: { store: { id: parent.id } }
         })
         .aggregate()
-        .count()
+        .count(),
+    storefiles: ({id}) => prisma.store({id}).storefiles(),
+    user: ({id}) => prisma.store({id}).user()
   }
 };  
