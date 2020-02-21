@@ -1,0 +1,13 @@
+enum ACTIONS {
+  EDIT
+  DELETE
+}
+
+type Mutation {
+  editAsset(
+    id: String!
+    assets: Int
+    date: String
+    action: ACTIONS!
+  ): Asset!
+} 

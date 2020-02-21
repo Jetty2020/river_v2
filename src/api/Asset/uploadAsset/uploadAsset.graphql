@@ -1,0 +1,6 @@
+type Mutation {
+  uploadAsset(
+     assets: Int!, 
+     date: String!
+  ): Asset!
+} 
