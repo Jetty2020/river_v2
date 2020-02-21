@@ -7,7 +7,7 @@ export default {
   Mutation: {
     editStore: async (_, args, { request }) => {
       const { user } = request;
-      if(user.authority1) {
+      if(user.authority2) {
         const { id, storename, open, close, caption, location, action } = args;
         const store = await prisma.$exists.store({ id });
         if (store) {

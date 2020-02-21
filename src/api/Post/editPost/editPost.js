@@ -9,7 +9,7 @@ export default {
       const { user } = request;
       const { id, postname, date, caption, location, action } = args;
       const post = await prisma.$exists.post({ id });
-      if(user.authority1) {
+      if(user.authority2) {
         if (post) {
           if (action === EDIT) {
             return prisma.updatePost({

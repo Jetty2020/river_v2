@@ -1,0 +1,7 @@
+type Mutation {
+  uploadAdvertise(
+     caption: String, 
+     pass: String,
+     advertisefiles: [String!]!
+  ): Advertise!
+} 

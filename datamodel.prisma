@@ -46,7 +46,7 @@ type Asset {
 type Store {
   id: ID! @id 
   storename: String! @unique
-  Advertise: Boolean! @default(value: false)
+  advertise: Boolean! @default(value: false)
   location: String
   caption: String
   open: String
@@ -91,6 +91,22 @@ type Like {
   id: ID! @id
   user: User @relation(name: "LikesOfUser")
   store: Store @relation(name: "LikeOfStore")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Advertise {
+  id: ID! @id
+  caption: String
+  advertisefiles: [AdvertiseFile!]! @relation(name: "AdvertisesOfPost", onDelete: CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type AdvertiseFile {
+  id: ID! @id
+  url: String!
+  advertise: Advertise @relation(name: "AdvertisesOfPost")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

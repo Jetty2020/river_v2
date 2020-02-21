@@ -5,7 +5,7 @@ export default {
     updatePoint: async (_, args, { request }) => {
       const { userId, point } = args;
       const { user } = request;
-      if(user.authority1) {
+      if(user.authority2) {
           try {
               try {
                 const existingPoint = await prisma.$exists.point();

@@ -48,6 +48,17 @@ export const FULL_STORE_FRAGMENT = `
       
 `;
 
+export const FULL_AVVERTISE_FRAGMENT = `
+      fragment AdvertiseParts on Advertise{
+          id
+          caption
+          advertisefiles {
+              ${FILE_FRAGMENT}
+          }
+     }
+      
+`;
+
 export const FULL_TICKET_FRAGMENT = `
       fragment TicketParts on Ticket{
           id

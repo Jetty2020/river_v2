@@ -5,7 +5,7 @@ import { prisma } from "../../../../generated/prisma-client";
      uploadPost: async (_, args, { request, isAuthenticated }) => {
        isAuthenticated(request);
        const { user } = request;
-       if(user.authority1) {
+       if(user.authority2) {
         const { postname, location, caption, date, postfiles } = args;
         const post = await prisma.createPost({
           postname,

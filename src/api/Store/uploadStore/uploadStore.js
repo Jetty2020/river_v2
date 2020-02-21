@@ -5,7 +5,7 @@ import { prisma } from "../../../../generated/prisma-client";
         uploadStore: async (_, args, { request, isAuthenticated }) => {
         isAuthenticated(request);
         const { user } = request;
-        if(user.authority1) {
+        if(user.authority2) {
           const { storename, location, caption, open, close, storefiles } = args;
           const store = await prisma.createStore({
             storename, 

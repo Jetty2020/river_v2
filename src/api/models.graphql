@@ -47,7 +47,7 @@ type Asset {
 type Store {
   id: ID! 
   storename: String! 
-  Advertise: Boolean!
+  advertise: Boolean!
   location: String
   caption: String
   open: String
@@ -101,3 +101,19 @@ type Like {
  type UserProfile {
     user: User!
   } 
+  
+type Advertise {
+  id: ID! 
+  caption: String
+  advertisefiles: [AdvertiseFile!]! 
+  createdAt: String
+  updatedAt: String
+}
+
+type AdvertiseFile {
+  id: ID! 
+  url: String!
+  advertise: Advertise!
+  createdAt: String
+  updatedAt: String
+}
