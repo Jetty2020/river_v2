@@ -20,11 +20,12 @@ type User {
 
 type Point {
    id: ID! 
-   addPoint: Int!
+   currentPoint: Int!
    previousPoint: Int!
-   sum: Int
+   addPoint: Int
    user: User!
    receiver: User!
+   rank: Int!
    createdAt: String 
    updatedAt: String 
  }
