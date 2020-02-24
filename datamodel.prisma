@@ -87,6 +87,8 @@ type Asset {
 type Store {
   id: ID! @id 
   storename: String! @unique
+  number: String!
+  city: String!
   advertise: Boolean! @default(value: false)
   location: String
   caption: String

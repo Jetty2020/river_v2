@@ -6,9 +6,11 @@ import { prisma } from "../../../../generated/prisma-client";
         isAuthenticated(request);
         const { user } = request;
         if(user.authority2) {
-          const { storename, location, caption, open, close, storefiles } = args;
+          const { storename, number, city, location, caption, open, close, storefiles } = args;
           const store = await prisma.createStore({
             storename, 
+            number, 
+            city,
             location, 
             caption, 
             open, 

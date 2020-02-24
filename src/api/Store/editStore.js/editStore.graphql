@@ -8,6 +8,8 @@ type Mutation {
     id: String!
     advertise: Boolean
     storename: String
+    number: String!
+    city: String!
     caption: String
     location: String
     open: String

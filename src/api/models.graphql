@@ -94,6 +94,8 @@ type Asset {
 type Store {
   id: ID! 
   storename: String! 
+  number: String!
+  city: String!
   advertise: Boolean!
   location: String
   caption: String
