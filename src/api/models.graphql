@@ -13,10 +13,54 @@ type User {
   assets: [Asset!]! 
   isSelf: Boolean!
   likes: [Like!]! 
+  freeposts: [FreePost!]! 
+  freelikes: [FreeLike!]! 
+  freePostsCount: Int!
+  freecomments: [FreeComment!]! 
   loginSecret: String
   createdAt: String 
   updatedAt: String 
 }
+
+ type FreePost {
+   id: ID! 
+   title: String!
+   caption: String!
+   user: User 
+   files: [FreeFile!]! 
+   likes: [FreeLike!]! 
+   comments: [FreeComment!]! 
+   isLiked: Boolean!
+   commentCount: Int!
+   likeCount: Int!
+   createdAt: String 
+   updatedAt: String 
+ }
+
+ type FreeLike {
+   id: ID! 
+   user: User 
+   post: FreePost 
+   createdAt: String 
+   updatedAt: String 
+ }
+
+ type FreeComment {
+   id: ID! 
+   text: String!
+   user: User 
+   post: FreePost 
+   createdAt: String 
+   updatedAt: String 
+ }
+
+ type FreeFile {
+   id: ID! 
+   url: String!
+   post: FreePost 
+   createdAt: String 
+   updatedAt: String 
+ }
 
 type Point {
    id: ID! 

@@ -1,0 +1,13 @@
+enum ACTIONS {
+  EDIT
+  DELETE
+}
+
+type Mutation {
+  editFreePost(
+    id: String!
+    title: String
+    caption: String
+    action: ACTIONS!
+  ): FreePost!
+}

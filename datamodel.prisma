@@ -12,10 +12,50 @@ type User {
   posts: [Post!]! @relation(name: "PostsOfUser", onDelete: CASCADE)
   stores: [Store!]! @relation(name: "StoresOfUser", onDelete: CASCADE)
   likes: [Like!]! @relation(name: "LikesOfUser", onDelete: CASCADE)
+  freeposts: [FreePost!]! @relation(name: "FreePostsOfUser", onDelete: CASCADE)
+  freelikes: [FreeLike!]! @relation(name: "FreeLikesOfUser", onDelete: CASCADE)
+  freecomments: [FreeComment!]! @relation(name: "FreeCommentsOfUser", onDelete: CASCADE)
   loginSecret: String
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
+
+ type FreePost {
+   id: ID! @id
+   title: String!
+   caption: String!
+   user: User @relation(name: "FreePostsOfUser")
+   files: [FreeFile!]! @relation(name: "FreeFilesOfPost", onDelete: CASCADE)
+   likes: [FreeLike!]! @relation(name: "FreeLikeOfPost", onDelete: CASCADE)
+   comments: [FreeComment!]! @relation(name: "FreeCommentOfPost", onDelete: CASCADE)
+   createdAt: DateTime! @createdAt
+   updatedAt: DateTime! @updatedAt
+ }
+
+ type FreeLike {
+   id: ID! @id
+   user: User @relation(name: "FreeLikesOfUser")
+   post: FreePost @relation(name: "FreeLikeOfPost")
+   createdAt: DateTime! @createdAt
+   updatedAt: DateTime! @updatedAt
+ }
+
+ type FreeComment {
+   id: ID! @id
+   text: String!
+   user: User @relation(name: "FreeCommentsOfUser")
+   post: FreePost @relation(name: "FreeCommentOfPost")
+   createdAt: DateTime! @createdAt
+   updatedAt: DateTime! @updatedAt
+ }
+
+ type FreeFile {
+   id: ID! @id
+   url: String!
+   post: FreePost @relation(name: "FreeFilesOfPost")
+   createdAt: DateTime! @createdAt
+   updatedAt: DateTime! @updatedAt
+ }
 
 type Point {
   id: ID! @id

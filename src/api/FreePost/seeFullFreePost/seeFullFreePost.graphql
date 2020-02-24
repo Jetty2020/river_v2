@@ -1,0 +1,3 @@
+type Query {
+  seeFullFreePost(id: String!): FreePost!
+}
