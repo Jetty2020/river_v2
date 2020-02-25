@@ -2,5 +2,6 @@ type Mutation {
    editUser(
      username: String
      phone: String
+     nickname: String
    ): User!
  } 

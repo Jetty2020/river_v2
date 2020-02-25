@@ -1,9 +1,7 @@
 type Mutation {
   uploadPost(
      postname: String!, 
-     location: String, 
-     caption: String, 
-     date: String, 
-     postfiles: [String!]!
+     caption: String!, 
+     postfiles: [String!]
   ): Post!
 } 

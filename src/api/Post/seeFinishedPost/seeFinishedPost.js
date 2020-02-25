@@ -5,7 +5,7 @@ export default {
     seeFinishedPost: async (_, __,) => {
       return prisma.posts({
         where: { finished: true },
-        orderBy: "location_DESC"
+        orderBy: "createdAt_DESC"
       });
     }
   }

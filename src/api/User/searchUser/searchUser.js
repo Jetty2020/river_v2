@@ -7,6 +7,7 @@ export default {
         where: {
           OR: [
             { username_contains: args.term },
+            { nickname_contains: args.term },
             { phone_contains: args.term }
           ]
         }

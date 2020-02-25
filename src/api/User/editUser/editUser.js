@@ -4,11 +4,11 @@ import { prisma } from "../../../../generated/prisma-client";
    Mutation: {
      editUser: (_, args, { request, isAuthenticated }) => {
        isAuthenticated(request);
-       const { username, phone } = args;
+       const { username, nickname, phone } = args;
        const { user } = request;
        return prisma.updateUser({
          where: { id: user.id },
-         data: { username, phone }
+         data: { username, nickname, phone }
        });
      }
    }

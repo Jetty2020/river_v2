@@ -2,6 +2,7 @@ type Mutation {
    createAccount(
      username: String!
      phone: String!
+     nickname: String!
    ): User!
  }
 

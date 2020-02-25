@@ -1,6 +1,7 @@
 type User {
   id: ID! 
   username: String!
+  nickname: String!
   authority1: Boolean!
   authority2: Boolean!
   phone: String! 
@@ -77,6 +78,7 @@ type Point {
 type Ticket {
    id: ID! 
    user: User!
+   caption: String!
    receiver: User!
    createdAt: String 
    updatedAt: String 
@@ -120,11 +122,9 @@ type StoreFile {
 
 type Post {
   id: ID! 
-  postname: String! 
+  title: String! 
   finished: Boolean!
-  date: String
   postfiles: [PostFile!]!
-  location: String
   caption: String
   user: User!
   createdAt: String 

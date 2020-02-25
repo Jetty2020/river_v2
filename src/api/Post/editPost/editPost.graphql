@@ -6,11 +6,9 @@ enum ACTIONS {
 type Mutation {
   editPost(
     id: String!
-    postname: String
+    title: String
     finished: Boolean
     caption: String
-    location: String
-    date: String
     action: ACTIONS!
   ): Post!
 } 

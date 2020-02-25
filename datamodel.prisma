@@ -1,6 +1,7 @@
 type User {
   id: ID! @id 
   username: String!
+  nickname: String! @unique
   phone: String! @unique
   authority1: Boolean! @default(value: false)
   authority2: Boolean! @default(value: false)
@@ -70,6 +71,7 @@ type Point {
 type Ticket {
   id: ID! @id
   user: User @relation(name: "TicketsOfUser")
+  caption: String!
   receiver: User @relation(name: "TicketsOfrecivers")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -111,11 +113,9 @@ type StoreFile {
 
 type Post {
   id: ID! @id 
-  postname: String! @unique
+  title: String! 
   finished: Boolean! @default(value: false)
-  location: String
   caption: String
-  date: DateTime
   user: User @relation(name: "PostsOfUser")
   postfiles: [PostFile!]! @relation(name: "FilesOfPost", onDelete: CASCADE)
   createdAt: DateTime! @createdAt

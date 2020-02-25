@@ -7,13 +7,13 @@ export default {
   Mutation: {
     editPost: async (_, args, { request }) => {
       const { user } = request;
-      const { id, postname, finished, date, caption, location, action } = args;
+      const { id, title, finished, caption, action } = args;
       const post = await prisma.$exists.post({ id });
       if(user.authority2) {
         if (post) {
           if (action === EDIT) {
             return prisma.updatePost({
-              data: { postname, finished, date, caption, location },
+              data: { title, finished, caption },
               where: { id }
             });
           } else if (action === DELETE) {

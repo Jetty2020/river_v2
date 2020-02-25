@@ -6,8 +6,7 @@ import { prisma } from "../../../../generated/prisma-client";
        prisma.posts({
          where: {
            OR: [
-             { postname_contains: args.term },
-             { location_contains: args.term },
+             { title_contains: args.term },
              { caption_contains: args.term }
            ]
          }

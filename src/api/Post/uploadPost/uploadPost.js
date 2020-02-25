@@ -6,12 +6,10 @@ import { prisma } from "../../../../generated/prisma-client";
        isAuthenticated(request);
        const { user } = request;
        if(user.authority2) {
-        const { postname, location, caption, date, postfiles } = args;
+        const { postname, caption, postfiles } = args;
         const post = await prisma.createPost({
           postname,
-          location,
           caption,
-          date,
           user: { connect: { id: user.id } }
         });
         postfiles.forEach(

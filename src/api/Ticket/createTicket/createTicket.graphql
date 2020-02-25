@@ -1,3 +1,6 @@
 type Mutation {
-   createTicket(userId: String!): Boolean!
+   createTicket(
+     userId: String!,
+     caption: String!
+     ): Boolean!
  } 
