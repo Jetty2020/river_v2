@@ -11,17 +11,19 @@ export default {
         caption,
         user: { connect: { id: user.id } }
       });
-      files.forEach(
-        async file =>
-          await prisma.createFreeFile({
-            url: file,
-            post: {
-              connect: {
-                id: post.id
+      if(files) {
+        files.forEach(
+          async file =>
+            await prisma.createFreeFile({
+              url: file,
+              post: {
+                connect: {
+                  id: post.id
+                }
               }
-            }
-          })
-      );
+            })
+        );
+      }
       return post;
     }
   }

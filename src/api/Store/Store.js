@@ -28,6 +28,7 @@ export default {
         .aggregate()
         .count(),
     storefiles: ({id}) => prisma.store({id}).storefiles(),
-    user: ({id}) => prisma.store({id}).user()
+    user: ({id}) => prisma.store({id}).user(),
+    likes: ({id}) => prisma.store({id}).likes()
   }
 };  

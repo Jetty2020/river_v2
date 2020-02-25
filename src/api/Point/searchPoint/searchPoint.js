@@ -6,12 +6,8 @@ export default {
       prisma.points({
         where: {
           OR: [
-            { 
-                receiver: {
-                id_contains: args.term
-                } 
-            },
-            { id_contains: args.term }
+            
+            { id_contains: args.id }
           ]
         }
       })

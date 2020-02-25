@@ -5,7 +5,7 @@ import { prisma } from "../../../../generated/prisma-client";
     uploadAdvertise: async (_, args, { request, isAuthenticated }) => {
        isAuthenticated(request);
        const { user } = request;
-       const { caption,pass, advertisefiles } = args;
+       const { caption, pass, advertisefiles } = args;
        if(user.authority2) {
         try {
             try {

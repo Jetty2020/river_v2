@@ -2,6 +2,7 @@ type Mutation {
   uploadAdvertise(
      caption: String, 
      pass: String,
+    #  0을 눌러서 이전 광고를 삭제하는데 사용
      advertisefiles: [String!]!
   ): Advertise!
 } 

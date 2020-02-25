@@ -89,8 +89,8 @@ type Asset {
 type Store {
   id: ID! @id 
   storename: String! @unique
-  number: String!
-  city: String!
+  number: String
+  city: String
   advertise: Boolean! @default(value: false)
   location: String
   caption: String
@@ -117,7 +117,7 @@ type Post {
   finished: Boolean! @default(value: false)
   caption: String
   user: User @relation(name: "PostsOfUser")
-  postfiles: [PostFile!]! @relation(name: "FilesOfPost", onDelete: CASCADE)
+  postfiles: [PostFile!] @relation(name: "FilesOfPost", onDelete: CASCADE)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

@@ -1,6 +1,6 @@
 type Mutation {
   uploadPost(
-     postname: String!, 
+     title: String!, 
      caption: String!, 
      postfiles: [String!]
   ): Post!
